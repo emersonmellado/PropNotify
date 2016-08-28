@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThermometerUnitTest", "ThermometerUnitTest\ThermometerUnitTest.csproj", "{36331E17-01CD-4CF8-BB28-BD13B03739EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThermometerLibrary", "ThermometerLibrary\ThermometerLibrary.csproj", "{B53A3BE6-2343-4D2A-AE6A-96EED40F8B23}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36331E17-01CD-4CF8-BB28-BD13B03739EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36331E17-01CD-4CF8-BB28-BD13B03739EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36331E17-01CD-4CF8-BB28-BD13B03739EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36331E17-01CD-4CF8-BB28-BD13B03739EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B53A3BE6-2343-4D2A-AE6A-96EED40F8B23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B53A3BE6-2343-4D2A-AE6A-96EED40F8B23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B53A3BE6-2343-4D2A-AE6A-96EED40F8B23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B53A3BE6-2343-4D2A-AE6A-96EED40F8B23}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://devmellado.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ThermometerLibrary\\ThermometerLibrary.csproj
+		SccProjectName1 = ThermometerLibrary
+		SccLocalPath1 = ThermometerLibrary
+		SccProjectUniqueName2 = ThermometerUnitTest\\ThermometerUnitTest.csproj
+		SccProjectName2 = ThermometerUnitTest
+		SccLocalPath2 = ThermometerUnitTest
+	EndGlobalSection
+EndGlobal
