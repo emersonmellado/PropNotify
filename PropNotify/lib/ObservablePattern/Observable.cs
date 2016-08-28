@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace ThermometerLibrary.ObservablePattern
+namespace lib.ObservablePattern
 {
     public class Observable<T> : IObsSubscriber<T>
     {

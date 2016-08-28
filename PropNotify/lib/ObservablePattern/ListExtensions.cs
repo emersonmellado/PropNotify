@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace ThermometerLibrary.ObservablePattern
+namespace lib.ObservablePattern
 {
     public static class ListExtension
     {

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{04CE5CC9-D94B-441F-B87A-D5C6B8ECE765}</ProjectGuid>
+    <ProjectGuid>{8F83F9A6-5BBB-4009-A9D5-5164F634CA03}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>lib</RootNamespace>
-    <AssemblyName>lib</AssemblyName>
+    <RootNamespace>Example</RootNamespace>
+    <AssemblyName>Example</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,13 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Box.cs" />
-    <Compile Include="ObservablePattern\IObsNotify.cs" />
-    <Compile Include="ObservablePattern\IObsSubscriber.cs" />
-    <Compile Include="ObservablePattern\ListExtensions.cs" />
-    <Compile Include="ObservablePattern\Observable.cs" />
-    <Compile Include="ObservablePattern\ObsNotify.cs" />
+    <Compile Include="PedidosCancelados2Sms.cs" />
+    <Compile Include="Pedido.cs" />
+    <Compile Include="PedidosCancelados.cs" />
+    <Compile Include="PedidosGerados.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\lib\lib.csproj">
+      <Project>{04CE5CC9-D94B-441F-B87A-D5C6B8ECE765}</Project>
+      <Name>lib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

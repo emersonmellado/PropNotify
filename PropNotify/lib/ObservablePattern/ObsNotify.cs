@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace ThermometerLibrary.ObservablePattern
+namespace lib.ObservablePattern
 {
     public abstract class ObsNotify<T> : IObsNotify<T>
     {
