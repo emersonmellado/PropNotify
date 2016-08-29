@@ -5,13 +5,11 @@ namespace lib.Common
 {
     public static class ListExtension
     {
-        public static void AddOrUpdate<T>(this List<T> lista, T newItem)
+        public static void AddOrUpdate<T>(this List<T> sourceList, T newItem)
         {
-
-            if (lista.Any(a => a.Equals(newItem)))
-                lista.Remove(newItem);
-
-            lista.Add(newItem);
+            if (sourceList.Any(a => a.Equals(newItem)))
+                sourceList.Remove(newItem);
+            sourceList.Add(newItem);
         }
     }
 }
