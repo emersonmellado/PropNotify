@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PedidosCancelados2Sms.cs" />
-    <Compile Include="Pedido.cs" />
+    <Compile Include="Invoice.cs" />
     <Compile Include="PedidosCancelados.cs" />
     <Compile Include="PedidosGerados.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

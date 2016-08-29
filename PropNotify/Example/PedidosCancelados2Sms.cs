@@ -7,11 +7,11 @@ namespace Example
 {
     public class PedidosCancelados2Sms : PedidosCancelados
     {
-        public PedidosCancelados2Sms(params Expression<Func<Pedido, object>>[] exp) : base(exp)
+        public PedidosCancelados2Sms(params Expression<Func<Invoice, object>>[] exp) : base(exp)
         {
         }
 
-        public override void DoNext(Pedido value, PropertyInfo propertyInfo)
+        public override void DoNext(Invoice value, PropertyInfo propertyInfo)
         {
             Debug.WriteLine($"\tPedido Cancelado 2 - ID:{value.Id}, Valor:{value.Valor} - Notificado: Prop: {propertyInfo.Name}");
         }

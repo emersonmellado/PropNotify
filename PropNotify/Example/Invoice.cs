@@ -1,6 +1,6 @@
 ﻿namespace Example
 {
-    public class Pedido
+    public class Invoice
     {
         public long Id { get; set; }
         public double Valor { get; set; }
@@ -8,11 +8,11 @@
 
         public override bool Equals(object obj)
         {
-            var pCast = (Pedido)obj;
+            var pCast = (Invoice)obj;
             return Id.Equals(pCast.Id);
         }
 
-        protected bool Equals(Pedido other)
+        protected bool Equals(Invoice other)
         {
             return Id == other.Id && Valor.Equals(other.Valor) && Cancelado == other.Cancelado;
         }

@@ -16,16 +16,16 @@ namespace PropNotify
             var pedCancelados2Sms = new PedidosCancelados2Sms(p => p.Cancelado);
 
 
-            var pedidos = new Box<Pedido>();
+            var pedidos = new Box<Invoice>();
             pedidos.Subscribe(pedGerados);
             pedidos.Subscribe(pedCancelados);
             pedidos.Subscribe(pedCancelados2Sms);
 
-            pedidos.AddOrUpdate(new Pedido { Id = 11, Cancelado = false, Valor = 1000.0 });
-            pedidos.AddOrUpdate(new Pedido { Id = 22, Cancelado = false, Valor = 1000.0 });
-            pedidos.AddOrUpdate(new Pedido { Id = 33, Cancelado = false, Valor = 1000.0 });
-            pedidos.AddOrUpdate(new Pedido { Id = 11, Cancelado = true, Valor = 1020.0 });
-            pedidos.AddOrUpdate(new Pedido { Id = 22, Cancelado = true, Valor = 10330.0 });
+            pedidos.AddOrUpdate(new Invoice { Id = 11, Cancelado = false, Valor = 1000.0 });
+            pedidos.AddOrUpdate(new Invoice { Id = 22, Cancelado = false, Valor = 1000.0 });
+            pedidos.AddOrUpdate(new Invoice { Id = 33, Cancelado = false, Valor = 1000.0 });
+            pedidos.AddOrUpdate(new Invoice { Id = 11, Cancelado = true, Valor = 1020.0 });
+            pedidos.AddOrUpdate(new Invoice { Id = 22, Cancelado = true, Valor = 10330.0 });
         }
 
     }

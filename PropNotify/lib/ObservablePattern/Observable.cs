@@ -10,7 +10,7 @@ namespace lib.ObservablePattern
     public class Observable<T> : IObsSubscriber<T>
     {
         private readonly List<IObsNotify<T>> _observers;
-        private List<T> _list;
+        private readonly List<T> _list;
 
         public Observable()
         {
@@ -46,7 +46,7 @@ namespace lib.ObservablePattern
             {
                 _observers.Add(observer);
             }
-            return new Unsubscriber(_observers, (IObsNotify<T>)observer);
+            return new Unsubscriber(_observers, observer);
         }
 
         private class Unsubscriber : IDisposable
@@ -84,7 +84,7 @@ namespace lib.ObservablePattern
 
             if (memberExpression == null)
             {
-                throw new ArgumentException("Not a member access", "expression");
+                throw new ArgumentException("Not a member access", nameof(expression));
             }
 
             return memberExpression.Member as PropertyInfo;
