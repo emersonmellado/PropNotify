@@ -58,9 +58,9 @@
       <Project>{8F83F9A6-5BBB-4009-A9D5-5164F634CA03}</Project>
       <Name>Example</Name>
     </ProjectReference>
-    <ProjectReference Include="..\lib\lib.csproj">
+    <ProjectReference Include="..\lib\Lib.csproj">
       <Project>{04CE5CC9-D94B-441F-B87A-D5C6B8ECE765}</Project>
-      <Name>lib</Name>
+      <Name>Lib</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
