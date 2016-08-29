@@ -41,11 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Box.cs" />
-    <Compile Include="ObservablePattern\IPropNotify.cs" />
-    <Compile Include="ObservablePattern\IPropNotifySubscriber.cs" />
-    <Compile Include="ObservablePattern\ListExtensions.cs" />
-    <Compile Include="ObservablePattern\Observable.cs" />
-    <Compile Include="ObservablePattern\PropNotify.cs" />
+    <Compile Include="Interfaces\IPropNotify.cs" />
+    <Compile Include="Interfaces\IPropNotifySubscriber.cs" />
+    <Compile Include="ListExtensions.cs" />
+    <Compile Include="Observable.cs" />
+    <Compile Include="PropNotify.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
