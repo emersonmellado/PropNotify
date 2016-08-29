@@ -4,7 +4,7 @@ using lib.Interfaces;
 
 namespace lib.Common
 {
-    public abstract class PropNotify<T> : IPropNotify<T>
+    public abstract class PropNotify<T> : IPropNotify<T> where T : IEquatable<T>
     {
         public Expression<Func<T, object>>[] PropsToObserver { get; set; }
         public Expression<Func<T, bool>>[] ConditionsToObserver { get; set; }

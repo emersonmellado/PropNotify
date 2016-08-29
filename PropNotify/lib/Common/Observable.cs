@@ -8,7 +8,7 @@ using lib.Interfaces;
 
 namespace lib.Common
 {
-    public class Observable<T> : IPropNotifySubscriber<T>
+    public class Observable<T> : IPropNotifySubscriber<T> where T : IEquatable<T>
     {
         private readonly List<IPropNotify<T>> _observers;
         private readonly List<T> _list;
@@ -27,7 +27,7 @@ namespace lib.Common
                 var props = o.PropsToObserver;
                 if (props != null && props.Any())
                 {
-                    var current = _list.FirstOrDefault(f => f.Equals(obj));
+                    var current = _list.FirstOrDefault(f => !EqualityComparer<T>.Default.Equals(f, obj));
                     if (current == null) return;
                     foreach (var expression in props)
                     {
