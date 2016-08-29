@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InvoideSms.cs" />
+    <Compile Include="InvoiceSms.cs" />
     <Compile Include="Invoice.cs" />
     <Compile Include="InvoiceCancelled.cs" />
     <Compile Include="InvoiceCreated.cs" />

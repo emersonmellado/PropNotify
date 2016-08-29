@@ -24,16 +24,32 @@ namespace lib.Common
 
             Parallel.Invoke(() => _observers.ForEach(o =>
             {
-                var props = o.PropsMonitored;
-                var current = _list.FirstOrDefault(f => f.Equals(obj));
-                if (current == null) return;
-                foreach (var expression in props)
+                var props = o.PropsToObserver;
+                if (props != null && props.Any())
                 {
-                    var p = GetProperty(expression);
-                    var pOldValue = p.GetValue(current, null);
-                    var pNewValue = p.GetValue(obj, null);
-                    if (!pNewValue.Equals(pOldValue))
-                        o.OnNotify(obj, p);
+                    var current = _list.FirstOrDefault(f => f.Equals(obj));
+                    if (current == null) return;
+                    foreach (var expression in props)
+                    {
+                        var p = GetProperty(expression);
+                        var pOldValue = p.GetValue(current, null);
+                        var pNewValue = p.GetValue(obj, null);
+                        if (!pNewValue.Equals(pOldValue))
+                            o.OnNotify(obj, p.Name);
+                    }
+                }
+                var conditions = o.ConditionsToObserver;
+                if (conditions != null && conditions.Any())
+                {
+                    foreach (var expression in conditions)
+                    {
+                        var func = expression.Compile();
+                        if (func(obj))
+                        {
+                            var expBody = expression.Body.ToString();
+                            o.OnNotify(obj, expBody);
+                        }
+                    }
                 }
             }));
             _list.AddOrUpdate(obj);
