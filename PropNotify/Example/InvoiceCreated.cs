@@ -7,7 +7,7 @@ namespace Example
     {
         public override void OnNotify(Invoice obj, string triggeredBy)
         {
-            Debug.WriteLine($"\tPedido Gerado - ID:{obj.Id}, Valor:{obj.Payment} - Notificado: Trigger: {triggeredBy}");
+            Debug.WriteLine($"\tInvoice Created - ID:{obj.Id}, Payment:{obj.Payment} - Notified: Trigger: {triggeredBy}");
         }
     }
 }

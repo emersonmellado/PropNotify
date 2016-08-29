@@ -41,8 +41,6 @@ namespace lib.Common
                 var conditions = o.ConditionsToObserver;
                 if (conditions != null && conditions.Any())
                 {
-                    var current = _list.FirstOrDefault(f => f.Equals(obj));
-                    if (current == null) return;
                     foreach (var expression in conditions)
                     {
                         var func = expression.Compile();
