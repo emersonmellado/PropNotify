@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Linq.Expressions;
 using System.Reflection;
+using lib.Interfaces;
 
-namespace lib.ObservablePattern
+namespace lib.Common
 {
     public abstract class PropNotify<T> : IPropNotify<T>
     {

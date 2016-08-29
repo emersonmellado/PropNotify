@@ -43,9 +43,9 @@
     <Compile Include="Box.cs" />
     <Compile Include="Interfaces\IPropNotify.cs" />
     <Compile Include="Interfaces\IPropNotifySubscriber.cs" />
-    <Compile Include="ListExtensions.cs" />
-    <Compile Include="Observable.cs" />
-    <Compile Include="PropNotify.cs" />
+    <Compile Include="Common\ListExtensions.cs" />
+    <Compile Include="Common\Observable.cs" />
+    <Compile Include="Common\PropNotify.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

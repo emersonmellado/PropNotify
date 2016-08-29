@@ -1,8 +1,9 @@
-using lib.ObservablePattern;
 using System;
 using System.Diagnostics;
 using System.Linq.Expressions;
 using System.Reflection;
+using lib;
+using lib.Common;
 
 namespace Example
 {

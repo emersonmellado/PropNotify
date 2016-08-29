@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace lib.ObservablePattern
+namespace lib.Interfaces
 {
     public interface IPropNotifySubscriber<T>
     {

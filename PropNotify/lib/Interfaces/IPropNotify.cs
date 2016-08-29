@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace lib.ObservablePattern
+namespace lib.Interfaces
 {
     public interface IPropNotify<T>
     {

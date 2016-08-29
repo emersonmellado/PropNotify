@@ -4,8 +4,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Threading.Tasks;
+using lib.Interfaces;
 
-namespace lib.ObservablePattern
+namespace lib.Common
 {
     public class Observable<T> : IPropNotifySubscriber<T>
     {
