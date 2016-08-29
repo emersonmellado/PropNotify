@@ -9,23 +9,23 @@ namespace PropNotify
     {
 
         [TestMethod]
-        public void Sample_Obsaverble()
+        public void Sample_PropNotify()
         {
-            var pedGerados = new PedidosGerados(p => p.Valor, p => p.Id);
-            var pedCancelados = new PedidosCancelados(p => p.Cancelado);
-            var pedCancelados2Sms = new PedidosCancelados2Sms(p => p.Cancelado);
+            var invoiceCreated = new InvoiceCreated(p => p.Payment, p => p.Id);
+            var invoiceCancelled = new InvoiceCancelled(p => p.Cancelled);
+            var invoideSms = new InvoideSms(p => p.Cancelled);
 
 
-            var pedidos = new Box<Invoice>();
-            pedidos.Subscribe(pedGerados);
-            pedidos.Subscribe(pedCancelados);
-            pedidos.Subscribe(pedCancelados2Sms);
+            var box = new Box<Invoice>();
+            box.Subscribe(invoiceCreated);
+            box.Subscribe(invoiceCancelled);
+            box.Subscribe(invoideSms);
 
-            pedidos.AddOrUpdate(new Invoice { Id = 11, Cancelado = false, Valor = 1000.0 });
-            pedidos.AddOrUpdate(new Invoice { Id = 22, Cancelado = false, Valor = 1000.0 });
-            pedidos.AddOrUpdate(new Invoice { Id = 33, Cancelado = false, Valor = 1000.0 });
-            pedidos.AddOrUpdate(new Invoice { Id = 11, Cancelado = true, Valor = 1020.0 });
-            pedidos.AddOrUpdate(new Invoice { Id = 22, Cancelado = true, Valor = 10330.0 });
+            box.AddOrUpdate(new Invoice { Id = 11, Cancelled = false, Payment = 1000.0 });
+            box.AddOrUpdate(new Invoice { Id = 22, Cancelled = false, Payment = 1000.0 });
+            box.AddOrUpdate(new Invoice { Id = 33, Cancelled = false, Payment = 1000.0 });
+            box.AddOrUpdate(new Invoice { Id = 11, Cancelled = true, Payment = 1020.0 });
+            box.AddOrUpdate(new Invoice { Id = 22, Cancelled = true, Payment = 10330.0 });
         }
 
     }

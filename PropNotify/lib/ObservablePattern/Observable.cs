@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace lib.ObservablePattern
 {
-    public class Observable<T> : IObsSubscriber<T>
+    public class Observable<T> : IPropNotifySubscriber<T>
     {
-        private readonly List<IObsNotify<T>> _observers;
+        private readonly List<IPropNotify<T>> _observers;
         private readonly List<T> _list;
 
         public Observable()
         {
-            _observers = new List<IObsNotify<T>>();
+            _observers = new List<IPropNotify<T>>();
             _list = new List<T>();
         }
 
@@ -40,7 +40,7 @@ namespace lib.ObservablePattern
             _list.AddOrUpdate(obj);
         }
 
-        public IDisposable Subscribe(IObsNotify<T> observer)
+        public IDisposable Subscribe(IPropNotify<T> observer)
         {
             if (!_observers.Contains(observer))
             {
@@ -51,10 +51,10 @@ namespace lib.ObservablePattern
 
         private class Unsubscriber : IDisposable
         {
-            private readonly List<IObsNotify<T>> _observers;
-            private readonly IObsNotify<T> _observer;
+            private readonly List<IPropNotify<T>> _observers;
+            private readonly IPropNotify<T> _observer;
 
-            public Unsubscriber(List<IObsNotify<T>> observers, IObsNotify<T> observer)
+            public Unsubscriber(List<IPropNotify<T>> observers, IPropNotify<T> observer)
             {
                 _observers = observers;
                 _observer = observer;

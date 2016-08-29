@@ -40,10 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PedidosCancelados2Sms.cs" />
+    <Compile Include="InvoideSms.cs" />
     <Compile Include="Invoice.cs" />
-    <Compile Include="PedidosCancelados.cs" />
-    <Compile Include="PedidosGerados.cs" />
+    <Compile Include="InvoiceCancelled.cs" />
+    <Compile Include="InvoiceCreated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

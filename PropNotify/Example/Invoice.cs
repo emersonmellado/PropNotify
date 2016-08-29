@@ -3,8 +3,8 @@
     public class Invoice
     {
         public long Id { get; set; }
-        public double Valor { get; set; }
-        public bool Cancelado { get; set; }
+        public double Payment { get; set; }
+        public bool Cancelled { get; set; }
 
         public override bool Equals(object obj)
         {
@@ -14,7 +14,7 @@
 
         protected bool Equals(Invoice other)
         {
-            return Id == other.Id && Valor.Equals(other.Valor) && Cancelado == other.Cancelado;
+            return Id == other.Id && Payment.Equals(other.Payment) && Cancelled == other.Cancelled;
         }
 
         public override int GetHashCode()
@@ -22,8 +22,8 @@
             unchecked
             {
                 var hashCode = Id.GetHashCode();
-                hashCode = (hashCode * 397) ^ Valor.GetHashCode();
-                hashCode = (hashCode * 397) ^ Cancelado.GetHashCode();
+                hashCode = (hashCode * 397) ^ Payment.GetHashCode();
+                hashCode = (hashCode * 397) ^ Cancelled.GetHashCode();
                 return hashCode;
             }
         }

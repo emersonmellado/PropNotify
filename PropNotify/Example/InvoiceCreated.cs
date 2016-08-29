@@ -6,15 +6,15 @@ using System.Reflection;
 
 namespace Example
 {
-    public class PedidosGerados : ObsNotify<Invoice>
+    public class InvoiceCreated : PropNotify<Invoice>
     {
-        public PedidosGerados(params Expression<Func<Invoice, object>>[] propsInterested)
+        public InvoiceCreated(params Expression<Func<Invoice, object>>[] propsInterested)
             : base(propsInterested)
         {
         }
         public override void OnNotify(Invoice mod, PropertyInfo propertyInfo)
         {
-            Debug.WriteLine($"\tPedido Gerado - ID:{mod.Id}, Valor:{mod.Valor} - Notificado: Prop:{propertyInfo.Name}");
+            Debug.WriteLine($"\tPedido Gerado - ID:{mod.Id}, Valor:{mod.Payment} - Notificado: Prop:{propertyInfo.Name}");
         }
     }
 }

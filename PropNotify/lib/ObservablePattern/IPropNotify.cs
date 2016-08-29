@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace lib.ObservablePattern
 {
-    public interface IObsNotify<T>
+    public interface IPropNotify<T>
     {
         void OnNotify(T mod, PropertyInfo propertyInfo);
         Expression<Func<T, object>>[] PropsMonitored { get; set; }
