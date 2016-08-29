@@ -17,9 +17,9 @@ namespace Example
             Debug.WriteLine($"\tInvoice Canceled - ID:{value.Id}, Payment:{value.Payment} - Notified: Prop: {propertyInfo.Name}");
         }
 
-        public override void OnNotify(Invoice mod, PropertyInfo propertyInfo)
+        public override void OnNotify(Invoice obj, PropertyInfo propertyInfo)
         {
-            DoNext(mod, propertyInfo);
+            DoNext(obj, propertyInfo);
         }
     }
 }

@@ -16,6 +16,6 @@ namespace lib.ObservablePattern
             PropsMonitored = props;
         }
 
-        public abstract void OnNotify(T mod, PropertyInfo propertyInfo);
+        public abstract void OnNotify(T obj, PropertyInfo propertyInfo);
     }
 }

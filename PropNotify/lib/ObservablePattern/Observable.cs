@@ -25,16 +25,14 @@ namespace lib.ObservablePattern
             {
                 var props = o.PropsMonitored;
                 var current = _list.FirstOrDefault(f => f.Equals(obj));
-                if (current != null)
+                if (current == null) return;
+                foreach (var expression in props)
                 {
-                    foreach (var expression in props)
-                    {
-                        var p = GetProperty(expression);
-                        var pOldValue = p.GetValue(current, null);
-                        var pNewValue = p.GetValue(obj, null);
-                        if (!pNewValue.Equals(pOldValue))
-                            o.OnNotify(obj, p);
-                    }
+                    var p = GetProperty(expression);
+                    var pOldValue = p.GetValue(current, null);
+                    var pNewValue = p.GetValue(obj, null);
+                    if (!pNewValue.Equals(pOldValue))
+                        o.OnNotify(obj, p);
                 }
             }));
             _list.AddOrUpdate(obj);

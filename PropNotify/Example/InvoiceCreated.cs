@@ -12,9 +12,9 @@ namespace Example
             : base(propsInterested)
         {
         }
-        public override void OnNotify(Invoice mod, PropertyInfo propertyInfo)
+        public override void OnNotify(Invoice obj, PropertyInfo propertyInfo)
         {
-            Debug.WriteLine($"\tPedido Gerado - ID:{mod.Id}, Valor:{mod.Payment} - Notificado: Prop:{propertyInfo.Name}");
+            Debug.WriteLine($"\tPedido Gerado - ID:{obj.Id}, Valor:{obj.Payment} - Notificado: Prop:{propertyInfo.Name}");
         }
     }
 }

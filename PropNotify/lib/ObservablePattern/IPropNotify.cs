@@ -6,7 +6,7 @@ namespace lib.ObservablePattern
 {
     public interface IPropNotify<T>
     {
-        void OnNotify(T mod, PropertyInfo propertyInfo);
+        void OnNotify(T obj, PropertyInfo propertyInfo);
         Expression<Func<T, object>>[] PropsMonitored { get; set; }
     }
 }
