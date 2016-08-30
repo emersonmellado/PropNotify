@@ -21,36 +21,39 @@ namespace lib.Common
 
         protected void Notify(T obj)
         {
-
             Parallel.Invoke(() => _observers.ForEach(o =>
             {
-                var props = o.PropsToObserver;
-                if (props != null && props.Any())
+                var currentObs = _list.FirstOrDefault(f => !EqualityComparer<T>.Default.Equals(f, obj));
+                var propertyActions = o.Actions.Where(w => !w.ConditionExp).ToList();
+                if (propertyActions.Any())
                 {
-                    var current = _list.FirstOrDefault(f => !EqualityComparer<T>.Default.Equals(f, obj));
-                    if (current == null) return;
-                    foreach (var expression in props)
+                    if (currentObs == null)
+                        return;
+
+                    foreach (var actProp in propertyActions)
                     {
-                        var p = GetProperty(expression);
-                        var pOldValue = p.GetValue(current, null);
+                        var p = GetProperty(actProp.ExpressionProperty);
+                        var pOldValue = p.GetValue(currentObs, null);
                         var pNewValue = p.GetValue(obj, null);
                         if (!pNewValue.Equals(pOldValue))
-                            o.OnNotify(obj, p.Name);
+                            actProp.Action.Invoke(obj, p.Name);
                     }
                 }
-                var conditions = o.ConditionsToObserver;
-                if (conditions != null && conditions.Any())
+
+                var conditionActions = o.Actions.Where(w => w.ConditionExp).ToList();
+                if (conditionActions.Any())
                 {
-                    foreach (var expression in conditions)
+                    foreach (var actCond in conditionActions)
                     {
-                        var func = expression.Compile();
+                        var func = actCond.ExpressionBool.Compile();
                         if (func(obj))
                         {
-                            var expBody = expression.Body.ToString();
-                            o.OnNotify(obj, expBody);
+                            var expBody = actCond.ExpressionBool.Body.ToString();
+                            actCond.Action.Invoke(obj, expBody);
                         }
                     }
                 }
+
             }));
             _list.AddOrUpdate(obj);
         }
