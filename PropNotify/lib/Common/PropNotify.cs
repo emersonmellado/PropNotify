@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 using lib.Interfaces;
 
@@ -6,23 +7,33 @@ namespace lib.Common
 {
     public abstract class PropNotify<T> : IPropNotify<T> where T : IEquatable<T>
     {
-        public Expression<Func<T, object>>[] PropsToObserver { get; set; }
-        public Expression<Func<T, bool>>[] ConditionsToObserver { get; set; }
+        protected PropNotify()
+        {
+            Actions = new List<ActionHolder<T>>();
+        }
+        public List<ActionHolder<T>> Actions { get; set; }
 
-        public void AddConditionToObserver(params Expression<Func<T, bool>>[] conditionsToObserver)
+        public void AddWatchCondition(params Expression<Func<T, bool>>[] conditionsToObserver)
         {
             if (conditionsToObserver == null)
                 throw new ArgumentNullException(nameof(conditionsToObserver));
-            ConditionsToObserver = conditionsToObserver;
+            foreach (var expression in conditionsToObserver)
+            {
+                Actions.AddCondition(OnNotify, expression);
+            }
         }
 
-        public void AddPropertiesToObserver(params Expression<Func<T, object>>[] propsToObserver)
+        public void AddWatchProperty(params Expression<Func<T, object>>[] propsToObserver)
         {
             if (propsToObserver == null)
                 throw new ArgumentNullException(nameof(propsToObserver));
-            PropsToObserver = propsToObserver;
+            foreach (var expression in propsToObserver)
+            {
+                Actions.AddProperty(OnNotify, expression);
+            }
         }
 
         public abstract void OnNotify(T obj, string triggeredBy);
+
     }
 }

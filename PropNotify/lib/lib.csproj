@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoxFluent.cs" />
     <Compile Include="Box.cs" />
+    <Compile Include="Common\ActionHolder.cs" />
     <Compile Include="Interfaces\IPropNotify.cs" />
     <Compile Include="Interfaces\IPropNotifySubscriber.cs" />
     <Compile Include="Common\ListExtensions.cs" />
