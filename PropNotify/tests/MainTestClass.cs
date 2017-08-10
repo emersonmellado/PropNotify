@@ -1,15 +1,15 @@
 ﻿using System.Diagnostics;
 using Example;
 using lib;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace PropNotify
 {
-    [TestClass]
+    [TestFixture]
     public class MainTestClass
     {
 
-        [TestMethod]
+        [Test]
         public void Sample_PropToObserver_PropNotify()
         {
             var invoiceCreated = new InvoiceCreated();
@@ -37,7 +37,7 @@ namespace PropNotify
 
         }
 
-        [TestMethod]
+        [Test]
         public void Sample_ConditionToObserver_PropNotify()
         {
             var invoiceCreated = new InvoiceCreated();
@@ -63,7 +63,7 @@ namespace PropNotify
             //todo: add asserts!
         }
 
-        [TestMethod]
+        [Test]
         public void Sample_FluentObserver_PropNotify()
         {
             var box = new BoxFluent<Invoice>();
