@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropNotify.Tests", "tests\PropNotify.Tests.csproj", "{83C74E10-DA3B-4B37-AF06-CFCC36F181AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropNotify.Tests", "PropNotify.Tests\PropNotify.Tests.csproj", "{83C74E10-DA3B-4B37-AF06-CFCC36F181AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropNotify", "lib\PropNotify.csproj", "{04CE5CC9-D94B-441F-B87A-D5C6B8ECE765}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropNotify", "PropNotify\PropNotify.csproj", "{04CE5CC9-D94B-441F-B87A-D5C6B8ECE765}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "example\Example.csproj", "{8F83F9A6-5BBB-4009-A9D5-5164F634CA03}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropNotify.Sample", "PropNotify.Sample\PropNotify.Sample.csproj", "{8F83F9A6-5BBB-4009-A9D5-5164F634CA03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
