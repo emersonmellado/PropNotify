@@ -1,5 +1,3 @@
-using System.Diagnostics;
-using System.Net.Mail;
 using PropNotify.Common;
 
 namespace Example

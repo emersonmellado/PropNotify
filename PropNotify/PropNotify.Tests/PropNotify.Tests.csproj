@@ -49,7 +49,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="MainTestClass.cs" />
+    <Compile Include="TrackerTests - Copy.cs" />
+    <Compile Include="TrackerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -3,7 +3,7 @@ using PropNotify.Common;
 
 namespace PropNotify
 {
-    public class Box<T> : Observable<T> where T : IEquatable<T>
+    public class Tracker<T> : Observable<T> where T : IEquatable<T>
     {
         public virtual void AddOrUpdate(T ped)
         {

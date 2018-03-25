@@ -40,8 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BoxFluent.cs" />
-    <Compile Include="Box.cs" />
+    <Compile Include="TrackerFluent.cs" />
+    <Compile Include="Tracker.cs" />
     <Compile Include="Common\ActionHolder.cs" />
     <Compile Include="Common\PropActionExtension.cs" />
     <Compile Include="Interfaces\IPropNotify.cs" />

@@ -5,7 +5,7 @@ using PropNotify.Interfaces;
 
 namespace PropNotify
 {
-    public class BoxFluent<T> : Observable<T> where T : IEquatable<T>
+    public class TrackerFluent<T> : Observable<T> where T : IEquatable<T>
     {
         public virtual void AddOrUpdate(T obj)
         {
@@ -27,13 +27,13 @@ namespace PropNotify
     public class NewSubscribedClient<T> : INewSubscribedClient<T>
         where T : IEquatable<T>
     {
-        private readonly BoxFluent<T> _boxFluent;
+        private readonly TrackerFluent<T> _trackerFluent;
         public IPropNotify<T> CurrentObserver { get; set; }
 
-        public NewSubscribedClient(BoxFluent<T> boxFluent, IPropNotify<T> observer)
+        public NewSubscribedClient(TrackerFluent<T> trackerFluent, IPropNotify<T> observer)
         {
-            boxFluent.Subscribe(observer);
-            _boxFluent = boxFluent;
+            trackerFluent.Subscribe(observer);
+            _trackerFluent = trackerFluent;
             CurrentObserver = observer;
         }
 

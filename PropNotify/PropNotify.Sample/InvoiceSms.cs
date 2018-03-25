@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace Example
+﻿namespace Example
 {
     public class InvoiceSms : InvoiceCancelled
     {
