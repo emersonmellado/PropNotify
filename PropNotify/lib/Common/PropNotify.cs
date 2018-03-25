@@ -10,14 +10,22 @@ namespace lib.Common
         protected PropNotify()
         {
             Actions = new List<ActionHolder<T>>();
+            Notifications = new List<Dictionary<string, T>>();
+        }
+
+        public List<Dictionary<string, T>> Notifications { get; set; }
+
+        public void AddNotification(string trigger, T obj)
+        {
+            Notifications.Add(new Dictionary<string, T> { { trigger, obj } });
         }
         public List<ActionHolder<T>> Actions { get; set; }
 
-        public void AddWatchCondition(params Expression<Func<T, bool>>[] conditionsToObserver)
+        public void AddWatchCondition(params Expression<Func<T, bool>>[] conditionsToWatch)
         {
-            if (conditionsToObserver == null)
-                throw new ArgumentNullException(nameof(conditionsToObserver));
-            foreach (var expression in conditionsToObserver)
+            if (conditionsToWatch == null)
+                throw new ArgumentNullException(nameof(conditionsToWatch));
+            foreach (var expression in conditionsToWatch)
             {
                 Actions.AddCondition(OnNotify, expression);
             }

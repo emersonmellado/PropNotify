@@ -4,9 +4,10 @@ namespace Example
 {
     public class InvoiceSms : InvoiceCancelled
     {
-        public override void DoNext(Invoice value, string triggeredBy)
+        public override void DoSomethingNext(Invoice obj, string trigger)
         {
-            Debug.WriteLine($"\tInvoice Canceled 2 - ID:{value.Id}, Payment:{value.Payment} - Notificado: Trigger: {triggeredBy}");
+            //AddNotification($"\tInvoice Canceled 2 - ID:{value.Id}, Payment:{value.Payment} - Notificado: Trigger: {triggeredBy}");
+            AddNotification(trigger, obj);
         }
     }
 }

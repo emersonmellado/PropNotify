@@ -8,5 +8,6 @@ namespace lib.Interfaces
     {
         void OnNotify(T obj, string triggeredBy);
         List<ActionHolder<T>> Actions { get; set; }
+        List<Dictionary<string, T>> Notifications { get; set; }
     }
 }

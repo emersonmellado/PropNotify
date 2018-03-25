@@ -19,6 +19,10 @@ namespace lib.Common
             _list = new List<T>();
         }
 
+        public List<T> GetList() => new List<T>(_list);
+
+        public List<IPropNotify<T>> GetObservers() => new List<IPropNotify<T>>(_observers);
+
         protected void Notify(T obj)
         {
             Parallel.Invoke(() => _observers.ForEach(o =>
@@ -27,8 +31,7 @@ namespace lib.Common
                 var propertyActions = o.Actions.Where(w => !w.ConditionExp).ToList();
                 if (propertyActions.Any())
                 {
-                    if (currentObs == null)
-                        return;
+                    if (currentObs == null) return;
 
                     foreach (var actProp in propertyActions)
                     {
@@ -41,17 +44,15 @@ namespace lib.Common
                 }
 
                 var conditionActions = o.Actions.Where(w => w.ConditionExp).ToList();
-                if (conditionActions.Any())
+                if (!conditionActions.Any()) return;
+
+                foreach (var actCond in conditionActions)
                 {
-                    foreach (var actCond in conditionActions)
-                    {
-                        var func = actCond.ExpressionBool.Compile();
-                        if (func(obj))
-                        {
-                            var expBody = actCond.ExpressionBool.Body.ToString();
-                            actCond.Action.Invoke(obj, expBody);
-                        }
-                    }
+                    var func = actCond.ExpressionBool.Compile();
+                    if (!func(obj)) continue;
+
+                    var expBody = actCond.ExpressionBool.Body.ToString();
+                    actCond.Action.Invoke(obj, expBody);
                 }
 
             }));

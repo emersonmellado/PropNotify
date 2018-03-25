@@ -6,8 +6,8 @@
     <ProjectGuid>{83C74E10-DA3B-4B37-AF06-CFCC36F181AA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PropNotify</RootNamespace>
-    <AssemblyName>PropNotify</AssemblyName>
+    <RootNamespace>PropNotify.Tests</RootNamespace>
+    <AssemblyName>PropNotify.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -57,9 +57,9 @@
       <Project>{8F83F9A6-5BBB-4009-A9D5-5164F634CA03}</Project>
       <Name>Example</Name>
     </ProjectReference>
-    <ProjectReference Include="..\lib\Lib.csproj">
+    <ProjectReference Include="..\lib\PropNotify.csproj">
       <Project>{04CE5CC9-D94B-441F-B87A-D5C6B8ECE765}</Project>
-      <Name>Lib</Name>
+      <Name>PropNotify</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

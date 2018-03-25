@@ -47,9 +47,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\lib\Lib.csproj">
+    <ProjectReference Include="..\lib\PropNotify.csproj">
       <Project>{04CE5CC9-D94B-441F-B87A-D5C6B8ECE765}</Project>
-      <Name>Lib</Name>
+      <Name>PropNotify</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

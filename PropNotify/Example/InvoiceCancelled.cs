@@ -6,14 +6,15 @@ namespace Example
 {
     public class InvoiceCancelled : PropNotify<Invoice>
     {
-        public virtual void DoNext(Invoice value, string triggeredBy)
+        public virtual void DoSomethingNext(Invoice obj, string trigger)
         {
-            Debug.WriteLine($"\tInvoice Canceled - ID:{value.Id}, Payment:{value.Payment} - Notified: Trigger: {triggeredBy}");
+            //AddNotification($"\tInvoice Canceled - ID:{value.Id}, Payment:{value.Payment} - Notified: Trigger: {triggeredBy}");
+            AddNotification(trigger, obj);
         }
 
         public override void OnNotify(Invoice obj, string triggeredBy)
         {
-            DoNext(obj, triggeredBy);
+            DoSomethingNext(obj, triggeredBy);
         }
     }
 }
