@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
-using Example;
 using NUnit.Framework;
+using PropNotify.Sample;
 
 namespace PropNotify.Tests
 {

@@ -7,8 +7,8 @@
     <ProjectGuid>{8F83F9A6-5BBB-4009-A9D5-5164F634CA03}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Example</RootNamespace>
-    <AssemblyName>Example</AssemblyName>
+    <RootNamespace>PropNotify.Sample</RootNamespace>
+    <AssemblyName>PropNotify.Sample</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

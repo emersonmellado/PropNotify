@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Example
+namespace PropNotify.Sample
 {
     public class Invoice : IEquatable<Invoice>
     {

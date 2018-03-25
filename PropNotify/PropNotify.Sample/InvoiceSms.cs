@@ -1,4 +1,4 @@
-﻿namespace Example
+﻿namespace PropNotify.Sample
 {
     public class InvoiceSms : InvoiceCancelled
     {

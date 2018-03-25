@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using Example;
 using NUnit.Framework;
 using PropNotify.Common;
+using PropNotify.Sample;
 
 namespace PropNotify.Tests
 {

@@ -1,6 +1,6 @@
 ﻿using PropNotify.Common;
 
-namespace Example
+namespace PropNotify.Sample
 {
     public class InvoiceCancelled : PropNotify<Invoice>
     {
