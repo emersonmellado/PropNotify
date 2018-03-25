@@ -1,6 +1,6 @@
 using System.Diagnostics;
 using System.Net.Mail;
-using lib.Common;
+using PropNotify.Common;
 
 namespace Example
 {

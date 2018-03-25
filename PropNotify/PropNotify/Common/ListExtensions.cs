@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace lib.Common
+namespace PropNotify.Common
 {
     public static class ListExtension
     {

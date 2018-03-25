@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using lib.Common;
+using PropNotify.Common;
 
-namespace lib.Interfaces
+namespace PropNotify.Interfaces
 {
     public interface IPropNotify<T> where T : IEquatable<T>
     {

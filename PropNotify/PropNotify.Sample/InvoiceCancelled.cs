@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
-using lib.Common;
+using PropNotify.Common;
 
 namespace Example
 {

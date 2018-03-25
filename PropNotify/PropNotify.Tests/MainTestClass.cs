@@ -2,11 +2,10 @@
 using System.Diagnostics;
 using System.Linq;
 using Example;
-using lib;
-using lib.Common;
 using NUnit.Framework;
+using PropNotify.Common;
 
-namespace PropNotify
+namespace PropNotify.Tests
 {
     [TestFixture]
     public class MainTestClass

@@ -1,7 +1,7 @@
 ﻿using System;
-using lib.Common;
+using PropNotify.Common;
 
-namespace lib
+namespace PropNotify
 {
     public class Box<T> : Observable<T> where T : IEquatable<T>
     {

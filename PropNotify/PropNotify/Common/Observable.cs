@@ -4,9 +4,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Threading.Tasks;
-using lib.Interfaces;
+using PropNotify.Interfaces;
 
-namespace lib.Common
+namespace PropNotify.Common
 {
     public class Observable<T> : IPropNotifySubscriber<T> where T : IEquatable<T>
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace lib.Common
+namespace PropNotify.Common
 {
     public class ActionHolder<T>
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq.Expressions;
-using lib.Common;
-using lib.Interfaces;
+using PropNotify.Common;
+using PropNotify.Interfaces;
 
-namespace lib
+namespace PropNotify
 {
     public class BoxFluent<T> : Observable<T> where T : IEquatable<T>
     {

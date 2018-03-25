@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using lib.Interfaces;
+using PropNotify.Interfaces;
 
-namespace lib.Common
+namespace PropNotify.Common
 {
     public abstract class PropNotify<T> : IPropNotify<T> where T : IEquatable<T>
     {

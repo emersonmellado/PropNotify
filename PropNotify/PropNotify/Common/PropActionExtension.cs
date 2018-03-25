@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace lib.Common
+namespace PropNotify.Common
 {
     public static class PropActionExtension
     {

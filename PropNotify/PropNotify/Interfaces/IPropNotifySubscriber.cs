@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace lib.Interfaces
+namespace PropNotify.Interfaces
 {
     public interface IPropNotifySubscriber<T> where T : IEquatable<T>
     {
