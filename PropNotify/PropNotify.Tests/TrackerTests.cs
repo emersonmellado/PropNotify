@@ -24,13 +24,35 @@ namespace PropNotify.Tests
 
 
             var tracker = new Tracker<Invoice>();
+            Assert.AreEqual(0, tracker.GetObservers().Count);
             tracker.Subscribe(invoiceCreated);
             tracker.Subscribe(invoiceCancelled);
             tracker.Subscribe(invoideSms);
+            Assert.AreEqual(3, tracker.GetObservers().Count);
 
-            tracker.AddOrUpdate(new Invoice { Id = 11, Cancelled = false, Payment = 1000.0 });
+            AssertNotificationsCreated(tracker, 0);
+            AssertNotificationsCancelled(tracker, 0);
+            AssertNotificationsSms(tracker, 0);
+
+            var invoice11 = new Invoice { Id = 11, Cancelled = false, Payment = 1000.0 };
+
+            tracker.AddOrUpdate(new Invoice { Id = 11, Cancelled = false, Payment = 2000.0 });
+            tracker.AddOrUpdate(invoice11);
+
+            AssertNotificationsCreated(tracker, 1);
+
             tracker.AddOrUpdate(new Invoice { Id = 22, Cancelled = false, Payment = 1000.0 });
             tracker.AddOrUpdate(new Invoice { Id = 33, Cancelled = false, Payment = 1000.0 });
+
+            AssertNotificationsCreated(tracker, 5);
+
+            AssertNotificationsCancelled(tracker, 0);
+            AssertNotificationsSms(tracker, 0);
+
+            Assert.AreEqual(invoice11, tracker.GetObservers().First(o => o.GetType() == typeof(InvoiceCreated)).Notifications.First().Values.First());
+            Assert.AreEqual("Payment", tracker.GetObservers().First(o => o.GetType() == typeof(InvoiceCreated)).Notifications.First().Keys.First());
+            Assert.AreEqual("Payment", tracker.GetObservers().First(o => o.GetType() == typeof(InvoiceCreated)).Notifications.Skip(1).First().Keys.First());
+
             tracker.AddOrUpdate(new Invoice { Id = 11, Cancelled = true, Payment = 1020.0 });
             tracker.AddOrUpdate(new Invoice { Id = 22, Cancelled = true, Payment = 10330.0 });
 
@@ -57,9 +79,9 @@ namespace PropNotify.Tests
             tracker.Subscribe(invoideSms);
             Assert.AreEqual(3, tracker.GetObservers().Count);
 
-            Assert.AreEqual(0, tracker.GetObservers().First(o => o.GetType() == typeof(InvoiceCreated)).Notifications.Count);
-            Assert.AreEqual(0, tracker.GetObservers().First(o => o.GetType() == typeof(InvoiceCancelled)).Notifications.Count);
-            Assert.AreEqual(0, tracker.GetObservers().First(o => o.GetType() == typeof(InvoiceSms)).Notifications.Count);
+            AssertNotificationsCreated(tracker, 0);
+            AssertNotificationsCancelled(tracker, 0);
+            AssertNotificationsSms(tracker, 0);
 
             var invoice11 = new Invoice { Id = 11, Cancelled = false, Payment = 1000.0 };
 

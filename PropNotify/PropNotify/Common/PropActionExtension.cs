@@ -10,7 +10,7 @@ namespace PropNotify.Common
         {
             actionHolder.Add(new ActionHolder<T>(action, expressionBool));
         }
-        public static void AddProperty<T>(this List<ActionHolder<T>> actionHolder, Action<T, string> action, Expression<Func<T, object>> expressionProperty)
+        public static void AddProperty<T>(this List<ActionHolder<T>> actionHolder, Action<T,string> action, Expression<Func<T, object>> expressionProperty)
         {
             actionHolder.Add(new ActionHolder<T>(action, expressionProperty));
         }

@@ -38,7 +38,7 @@
     <Reference Include="nunit.framework, Version=3.7.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb">
       <HintPath>..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
-	<Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.2.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -62,7 +62,7 @@
   <ItemGroup>
     <ProjectReference Include="..\PropNotify.Sample\PropNotify.Sample.csproj">
       <Project>{8F83F9A6-5BBB-4009-A9D5-5164F634CA03}</Project>
-      <Name>Example</Name>
+      <Name>PropNotify.Sample</Name>
     </ProjectReference>
     <ProjectReference Include="..\PropNotify\PropNotify.csproj">
       <Project>{04CE5CC9-D94B-441F-B87A-D5C6B8ECE765}</Project>

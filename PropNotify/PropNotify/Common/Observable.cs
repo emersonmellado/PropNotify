@@ -11,27 +11,36 @@ namespace PropNotify.Common
     public class Observable<T> : IPropNotifySubscriber<T> where T : IEquatable<T>
     {
         private readonly List<IPropNotify<T>> _observers;
-        private readonly List<T> _list;
+        private readonly List<T> _lookupList;
 
         public Observable()
         {
             _observers = new List<IPropNotify<T>>();
-            _list = new List<T>();
+            _lookupList = new List<T>();
         }
 
-        public List<T> GetList() => new List<T>(_list);
+        public List<T> GetList() => new List<T>(_lookupList);
 
         public List<IPropNotify<T>> GetObservers() => new List<IPropNotify<T>>(_observers);
 
         protected void Notify(T obj)
         {
-            Parallel.Invoke(() => _observers.ForEach(o =>
+            Parallel.Invoke(() => DelegateToAction(obj));
+            _lookupList.AddOrUpdate(obj);
+        }
+
+        private void DelegateToAction(T obj)
+        {
+            _observers.ForEach(o =>
             {
-                var currentObs = _list.FirstOrDefault(f => !EqualityComparer<T>.Default.Equals(f, obj));
+                var currentObs = _lookupList.FirstOrDefault(f => !EqualityComparer<T>.Default.Equals(f, obj));
                 var propertyActions = o.Actions.Where(w => !w.ConditionExp).ToList();
                 if (propertyActions.Any())
                 {
-                    if (currentObs == null) return;
+                    if (currentObs == null)
+                    {
+                        return;
+                    }
 
                     foreach (var actProp in propertyActions)
                     {
@@ -55,8 +64,7 @@ namespace PropNotify.Common
                     actCond.Action.Invoke(obj, expBody);
                 }
 
-            }));
-            _list.AddOrUpdate(obj);
+            });
         }
 
         public IDisposable Subscribe(IPropNotify<T> observer)
@@ -88,17 +96,18 @@ namespace PropNotify.Common
             }
         }
 
-        public static PropertyInfo GetProperty<T>(Expression<Func<T, object>> expression)
+        public static PropertyInfo GetProperty(Expression<Func<T, object>> expression)
         {
             MemberExpression memberExpression = null;
 
-            if (expression.Body.NodeType == ExpressionType.Convert)
+            switch (expression.Body.NodeType)
             {
-                memberExpression = ((UnaryExpression)expression.Body).Operand as MemberExpression;
-            }
-            else if (expression.Body.NodeType == ExpressionType.MemberAccess)
-            {
-                memberExpression = expression.Body as MemberExpression;
+                case ExpressionType.Convert:
+                    memberExpression = ((UnaryExpression)expression.Body).Operand as MemberExpression;
+                    break;
+                case ExpressionType.MemberAccess:
+                    memberExpression = expression.Body as MemberExpression;
+                    break;
             }
 
             if (memberExpression == null)
