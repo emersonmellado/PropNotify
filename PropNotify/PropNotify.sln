@@ -9,6 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropNotify", "PropNotify\Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropNotify.Sample", "PropNotify.Sample\PropNotify.Sample.csproj", "{8F83F9A6-5BBB-4009-A9D5-5164F634CA03}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{A54E9F8D-5BEB-4505-B3DB-ED306493A75A}"
+	ProjectSection(SolutionItems) = preProject
+		build\build.bat = build\build.bat
+		Build\NuGet.exe = Build\NuGet.exe
+		Build\PropNotify.nuspec = Build\PropNotify.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
